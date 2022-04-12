@@ -31,7 +31,11 @@ router.get('/product/:id', async (req, res)=>{
 })
 
 router.post('/create', (req, res)=>{
-    res.send
+    // Desectructuramos la informacion que mande post
+    let {title, price, thumbnail} = req.body;
+    let newProduct = { title, price, thumbnail }
+    arrProduct.push(newProduct);
+    res.send('Producto cargado de forma correcta')
 })
 
 module.exports = router;
