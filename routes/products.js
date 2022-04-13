@@ -23,10 +23,11 @@ router.get('/productRandom', async (req, res)=>{
 })
 
 router.get('/product/:id', async (req, res)=>{
-    let prod = await file.getAll()
+    let prod = await file.getAll();
+    let id = req.params.id;
     res.send({
         message: 'Respuesta correcta',
-        data: prod[Math.floor(Math.random()*prod.length)]
+        data: prod.find(x=>x.id ==id)
     })
 })
 
