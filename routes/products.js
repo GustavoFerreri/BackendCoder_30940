@@ -1,5 +1,5 @@
 const express = require('express');
-const {Router} = express;
+const { Router } = express;
 let router = new Router();
 const Contenedor = require ('../asyncMock')
 
@@ -33,6 +33,7 @@ router.get('/product/:id', async (req, res)=>{
 
 router.post('/product', (req, res)=>{
     // Desectructuramos la informacion que mande post
+    // Siendo ya bodyParser usando 
     let {title, price, thumbnail} = req.body;
     let newProduct = { title, price, thumbnail }
     file.save(newProduct)
