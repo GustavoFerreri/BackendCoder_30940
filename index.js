@@ -1,11 +1,20 @@
-const express = require('express');
-const productRoutes = require('./routes/products')
-const app = express();
+'use strict'
 
-app.use(express.json()) //Formatea de forma automatica los request
+// llamamos a la dependencia express
+const express = require('express');
+
+// utilizamos el midleware body-parser
+const bodyParser = require('body-parser')
+const productRoutes = require('./routes/products')
+
+const app = express();
+const port = process.env.PORT || 8080;
+
+app.use(bodyParser.urlencoded({ extended: false}))
+app.use(bodyParser.json()) //Formatea de forma automatica los request
+
 app.use('/api', productRoutes)
 
-
-app.listen(8080, ()=>{
-    console.log('Server listen');
+app.listen(port, ()=>{
+    console.log(`Servidor corriendo en http://localhost:${port}`);
 })
