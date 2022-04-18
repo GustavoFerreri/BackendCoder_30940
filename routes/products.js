@@ -2,6 +2,8 @@ const express = require('express');
 const { Router } = express;
 let router = new Router();
 const Contenedor = require ('../asyncMock')
+// Incorporamos el modelo
+const Product = require('../models/product')
 
 const file = new Contenedor('products')
 

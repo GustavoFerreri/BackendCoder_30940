@@ -10,6 +10,9 @@ const mongoose = require('mongoose');
 const productRoutes = require('./routes/products');
 
 const app = express();
+
+// Establecemos el puerto, si no esta habilitado el de la variable de entorno
+// colocamos uno por defecto, en este caso particular utilizamos el mismo puerto
 const port = process.env.PORT || 8080;
 
 app.use(bodyParser.urlencoded({ extended: false}));
